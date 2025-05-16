@@ -25,8 +25,8 @@ class EmbeddedChunks extends Command
         private readonly DocumentManager $documentManager,
         private readonly string $voyageAiApiKey,
         private readonly string $voyageEndpoint,
-        private readonly int $batchSize = 32,
-        private readonly int $maxRetries = 3
+        private readonly int $batchSize,
+        private readonly int $maxRetries,
     ) {
         parent::__construct();
     }
@@ -98,8 +98,7 @@ class EmbeddedChunks extends Command
                         'Authorization' => 'Bearer ' . $this->voyageAiApiKey,
                         'Content-Type' => 'application/json',
                     ],
-                    'json' => $payload,
-                    'timeout' => 60,
+                    'json' => $payload
                 ]);
 
                 $data = json_decode($response->getBody()->getContents(), true);
