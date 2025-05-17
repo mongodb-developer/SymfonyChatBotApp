@@ -57,7 +57,7 @@ class ResponseService
     $messages = [
         [
             'role' => 'system',
-            'content' => 'You are a Symfony chatbot. You help users by answering questions based on Symfony documentation.'
+            'content' => 'You are a Symfony & Doctrine chatbot. You help users by answering questions based on Symfony documentation.'
         ],
         [
             'role' => 'user',
