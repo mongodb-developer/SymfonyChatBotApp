@@ -44,11 +44,11 @@ private function getPredefinedResponse(string $message): ?string
 {
     $responses = [
         'hi' => 'Hello! How can I help you with Symfony today?',
-        'hello' => 'Hello! What can I do for you today? We recommend asking a Symfony based question',
+        'hello' => 'Hello! What can I do for you today? We recommend asking a Symfony or Doctrine based question',
         'hey' => 'Hey there! You can ask me anything about Symfony',
-        'how are you' => 'I am doing fine, how are you? Are you looking for Symfony questions',
+        'how are you' => 'I am doing fine, how are you? Are you looking for something related to Symfony or Doctrine ?',
         'good morning' => 'Good morning! Do you have any Symfony related queries?',
-        'good evening' => 'Good evening! Need help with something Symfony-related?',
+        'good evening' => 'Good evening! Need help with something Symfony or Doctrine related?',
         'bye' => 'Goodbye! ',
         'goodbye' => 'Bbye',
         'thank you' => 'You are welcome! Please feel free to ask any further questions',

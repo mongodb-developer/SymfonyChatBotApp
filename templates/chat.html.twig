@@ -108,20 +108,20 @@
 
     <div class="chat-wrapper">
         <div class="chat-welcome">
-            Welcome to Symfony Docs Chatbot. We will try to answer your Symfony-based questions.
+            Welcome to Symfony & Doctrine Chatbot. Your intelligent assistant for Symfony and Doctrine.
         </div>
 
         <div class="chat-messages">
             {% if question %}
                 <div class="chat-message">
                     <p><strong>You asked:</strong> {{ question }}</p>
-                    <p><strong>Application says:</strong></p>
+                    <p><strong>ChatBot says:</strong></p>
                     <div class="chatbot-response">
                         {{ answer|markdown_to_html|raw }}
                     </div>
                 </div>
             {% else %}
-                <p>This is an answer to your Symfony documentation page.</p>
+                <p>This is an answer to your Symfony and Doctrine documentation page.</p>
             {% endif %}
         </div>
 
