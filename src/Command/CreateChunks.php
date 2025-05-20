@@ -13,7 +13,7 @@ use LLPhant\Embeddings\DocumentSplitter\DocumentSplitter;
 use Doctrine\ODM\MongoDB\DocumentManager;
 
 #[AsCommand(
-    name: 'app:createChunks',
+    name: 'app:create-chunks',
     description: 'This command will generate chunks from the rst files and store into MongoDB',
 )]
 class CreateChunks extends Command
@@ -32,7 +32,7 @@ protected function execute(InputInterface $input, OutputInterface $output): int
     $io = new SymfonyStyle($input, $output);
     $io->title("Chunking all .rst files and storing them into MongoDB");
 
-    $directory = '/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/public/';
+    $directory = '../../public/';
     if (!is_dir($directory)) {
         throw new \Exception("Directory not found: " . $directory);
     }

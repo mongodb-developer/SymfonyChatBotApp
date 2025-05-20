@@ -6,6 +6,9 @@ use App\Document\ChunkedDocuments;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use MongoDB\Builder\Pipeline;
 use MongoDB\Builder\Stage;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+
 
 
 
@@ -14,10 +17,19 @@ class ResponseService
 
     public function __construct(
         private readonly DocumentManager $documentManager,
+        #[Autowire(env: 'OPENAI_API_KEY')]
         private readonly string $openAiApiKey,
+
+        #[Autowire(env: 'OPENAI_API_URL')]
         private readonly string $openAiApiUrl,
+
+        #[Autowire(env: 'VOYAGE_API_KEY')]
         private readonly string $voyageAiApiKey,
-        private readonly string $voyageEndpoint
+
+        #[Autowire(env: 'VOYAGE_ENDPOINT')]       
+        private readonly string $voyageEndpoint,
+        
+        private HttpClientInterface $client
     ) {}
 
 
@@ -49,57 +61,51 @@ class ResponseService
    
 
     public function formatResponse(array $contents, string $query): string
-{
-
-    $client = new \GuzzleHttp\Client();
-    $combineResponse = implode("\n", array_map('trim', $contents));
-
-    $messages = [
-        [
-            'role' => 'system',
-            'content' => 'You are a Symfony & Doctrine chatbot. You help users by answering questions based on Symfony documentation.'
-        ],
-        [
-            'role' => 'user',
-            'content' => "Using the following context from Symfony documentation:\n\n" . $combineResponse
-        ]
-    ];
-
-    if ($query) {
-        $messages[] = [
-            'role' => 'user',
-            'content' => "User query: " . $query
+    {
+        $combineResponse = implode("\n", array_map('trim', $contents));
+    
+        $messages = [
+            [
+                'role' => 'system',
+                'content' => 'You are a Symfony & Doctrine chatbot. You help users by answering questions based on Symfony documentation.'
+            ],
+            [
+                'role' => 'user',
+                'content' => "Using the following context from Symfony documentation:\n\n" . $combineResponse
+            ]
         ];
+    
+        if ($query) {
+            $messages[] = [
+                'role' => 'user',
+                'content' => "User query: " . $query
+            ];
+        }
+    
+        try {
+            $response = $this->client->request('POST', $this->openAiApiUrl, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $this->openAiApiKey,
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'model' => 'gpt-4.1',
+                    'messages' => $messages
+                ],
+                'timeout' => 30,
+            ]);
+    
+            $data = json_decode($response->getContent(), true);
+            return $data['choices'][0]['message']['content'] ?? 'No reply from OpenAI.';
+        } catch (\Throwable $e) {
+            return "Error generating response: " . $e->getMessage();
+        }
     }
-    try {
-        $response = $client->post($this->openAiApiUrl, [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->openAiApiKey,
-                'Content-Type' => 'application/json',
-            ],
-            'json' => [
-                'model' => 'gpt-4.1',
-                'messages' => $messages
-            ],
-            'timeout' => 30,
-        ]);
-
-        $data = json_decode($response->getBody()->getContents(), true);
-        $OpenAiResponse = $data['choices'][0]['message']['content'] ?? 'No reply from OpenAI.';
-
-        return $OpenAiResponse;
-
-    } catch (\Throwable $e) {
-        return "Error generating response: " . $e->getMessage();
-    }
-}
 
 private function generateEmbedding(string $text): ?array
 {
-    $client = new \GuzzleHttp\Client();
-
     try {
-        $response = $client->post($this->voyageEndpoint, [
+        $response = $this->client->request('POST', $this->voyageEndpoint, [
             'headers' => [
                 'Authorization' => 'Bearer ' . $this->voyageAiApiKey,
                 'Content-Type' => 'application/json',
@@ -112,10 +118,11 @@ private function generateEmbedding(string $text): ?array
             'timeout' => 20,
         ]);
 
-        $data = json_decode($response->getBody()->getContents(), true);
+        $data = json_decode($response->getContent(), true);
         return $data['data'][0]['embedding'] ?? null;
     } catch (\Throwable $e) {
         return null;
     }
 }
+
 }
