@@ -6,13 +6,13 @@ namespace App\Command;
 
 use App\Document\ChunkedDocuments;
 use Doctrine\ODM\MongoDB\DocumentManager;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 #[AsCommand(
     name: 'app:embed-chunks',
@@ -23,10 +23,19 @@ class EmbeddedChunks extends Command
 
     public function __construct(
         private readonly DocumentManager $documentManager,
+        #[Autowire(env: 'VOYAGE_API_KEY')]
         private readonly string $voyageAiApiKey,
+
+        #[Autowire(env: 'VOYAGE_ENDPOINT')]
         private readonly string $voyageEndpoint,
+
+        #[Autowire(env: 'BATCH_SIZE')]
         private readonly int $batchSize,
+
+        #[Autowire(env: 'MAX_RETRIES')]
         private readonly int $maxRetries,
+        
+        private HttpClientInterface $client,
     ) {
         parent::__construct();
     }
@@ -45,7 +54,7 @@ class EmbeddedChunks extends Command
             return Command::SUCCESS;
         }
 
-        $client = new Client();
+        
         $batchedContent = [];
         $originalDocs = [];
         $embeddedCount = 0;
@@ -60,7 +69,7 @@ class EmbeddedChunks extends Command
             $originalDocs[] = $doc;
 
             if (count($batchedContent) >= $this->batchSize) {
-                $embeddedCount += $this->embedAndPersist($client, $batchedContent, $originalDocs, $io);
+                $embeddedCount += $this->embedAndPersist($this->client, $batchedContent, $originalDocs, $io);
                 $batchedContent = [];
                 $originalDocs = [];
                 gc_collect_cycles();
@@ -68,7 +77,7 @@ class EmbeddedChunks extends Command
         }
 
         if (!empty($batchedContent)) {
-            $embeddedCount += $this->embedAndPersist($client, $batchedContent, $originalDocs, $io);
+            $embeddedCount += $this->embedAndPersist($this->client, $batchedContent, $originalDocs, $io);
         }
 
         $this->documentManager->flush();
@@ -77,56 +86,59 @@ class EmbeddedChunks extends Command
         return Command::SUCCESS;
     }
 
-    private function embedAndPersist(Client $client, array $inputTexts, array $originalDocs, SymfonyStyle $io): int
-    {
-        $payload = [
-            'input' => $inputTexts,
-            'model' => 'voyage-3',
-            'input_type' => 'document',
-        ];
+    private function embedAndPersist(HttpClientInterface $client, array $inputTexts, array $originalDocs, SymfonyStyle $io): int
+{
+    $payload = [
+        'input' => $inputTexts,
+        'model' => 'voyage-3',
+        'input_type' => 'document',
+    ];
 
-        $embedded = 0;
-        $attempt = 0;
-        $success = false;
+    $embedded = 0;
+    $attempt = 0;
+    $success = false;
 
-        while ($attempt < $this->maxRetries && !$success) {
-            try {
-                $attempt++;
+    while ($attempt < $this->maxRetries && !$success) {
+        try {
+            $attempt++;
 
-                $response = $client->post($this->voyageEndpoint, [
-                    'headers' => [
-                        'Authorization' => 'Bearer ' . $this->voyageAiApiKey,
-                        'Content-Type' => 'application/json',
-                    ],
-                    'json' => $payload
-                ]);
+            $response = $client->request('POST', $this->voyageEndpoint, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $this->voyageAiApiKey,
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => $payload,
+            ]);
 
-                $data = json_decode($response->getBody()->getContents(), true);
-                if (!isset($data['data'])) {
-                    throw new \RuntimeException('Missing "data" in Voyage AI response');
-                }
+            $data = json_decode($response->getContent(), true);
 
-                foreach ($data['data'] as $index => $embeddingResult) {
-                    $embedding = $embeddingResult['embedding'] ?? null;
-                    if ($embedding === null) continue;
-
-                    $originalDoc = $originalDocs[$index];
-                    $originalDoc->setcontentEmbedding($embedding);
-                    $originalDoc->setcreatedAt(new \DateTime());
-                    $this->documentManager->persist($originalDoc);
-                    $embedded++;
-                }
-
-                $success = true;
-            } catch (RequestException $e) {
-                $io->warning("Attempt $attempt failed: " . $e->getMessage());
-                sleep(2 * $attempt);
-            } catch (\Throwable $e) {
-                $io->error('Unexpected error: ' . $e->getMessage());
-                break;
+            if (!isset($data['data'])) {
+                throw new \RuntimeException('Missing "data" in Voyage AI response');
             }
-        }
 
-        return $embedded;
+            foreach ($data['data'] as $index => $embeddingResult) {
+                $embedding = $embeddingResult['embedding'] ?? null;
+                if ($embedding === null) continue;
+
+                $originalDoc = $originalDocs[$index];
+                $originalDoc->setcontentEmbedding($embedding);
+                $originalDoc->setcreatedAt(new \DateTime());
+                $this->documentManager->persist($originalDoc);
+                $embedded++;
+            }
+
+            $success = true;
+        } catch (\Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface |
+                 \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface |
+                 \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface $e) {
+            $io->warning("Attempt $attempt failed: " . $e->getMessage());
+            sleep(2 * $attempt);
+        } catch (\Throwable $e) {
+            $io->error('Unexpected error: ' . $e->getMessage());
+            break;
+        }
     }
+
+    return $embedded;
+}
 }
