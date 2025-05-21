@@ -1,4 +1,4 @@
-# Symfony ChatBot Application with MongoDB and RAG
+# Symfony ChatBot Application with MongoDB
 
 This repository contains the code for building a chatbot application using the Symfony framework, MongoDB Atlas, Voyage AI, and OpenAI. The chatbot is designed to answer questions based on the Symfony Documentation, Doctrine ORM, and Doctrine ODM documentation. It utilizes the Retrieval Augmented Generation (RAG) architecture to provide accurate and context-aware responses.
 
