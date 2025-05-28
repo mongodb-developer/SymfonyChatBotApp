@@ -6,8 +6,7 @@ namespace LLPhant;
 
 class VoyageAIConfig extends OpenAIConfig
 {
-    public string $url;
-    public string $apiKey;
+    public string $url = 'https://api.voyageai.com/v1';
 
     /**
      * model options, example:
@@ -22,10 +21,4 @@ class VoyageAIConfig extends OpenAIConfig
      * @var array<string, mixed>
      */
     public array $modelOptions = [];
-
-    public function __construct(string $apiKey, string $url = 'https://api.voyageai.com/v1')
-    {
-        $this->apiKey = $apiKey;
-        $this->url = $url;
-    }
 }

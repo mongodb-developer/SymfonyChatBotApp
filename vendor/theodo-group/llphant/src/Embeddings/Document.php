@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace LLPhant\Embeddings;
 
-use Dom\Document as DomDocument;
-
 class Document
 {
     public mixed $id;
