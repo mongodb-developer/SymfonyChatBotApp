@@ -9,7 +9,7 @@
         "ext-iconv": "*",
         "doctrine/mongodb-odm-bundle": "^5.3",
         "league/commonmark": "^2.7",
-        "mongodb/mongodb": "2.0",
+        "mongodb/mongodb": "2.0.0",
         "symfony/console": "7.2.*",
         "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2.7.1",
