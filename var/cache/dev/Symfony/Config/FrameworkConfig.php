@@ -238,8 +238,8 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
 
     /**
      * @default array (
-      0 => '%env(default::SYMFONY_TRUSTED_PROXIES)%',
-    )
+     *   0 => '%env(default::SYMFONY_TRUSTED_PROXIES)%',
+     * )
      * @param ParamConfigurator|mixed $value
      *
      * @return $this
@@ -1020,7 +1020,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
      * @template TValue
      * @param TValue $value
      * HTTP Client configuration
-     * @default {"enabled":false,"scoped_clients":[]}
+     * @default {"enabled":true,"scoped_clients":[]}
      * @return \Symfony\Config\Framework\HttpClientConfig|$this
      * @psalm-return (TValue is array ? \Symfony\Config\Framework\HttpClientConfig : static)
      */
