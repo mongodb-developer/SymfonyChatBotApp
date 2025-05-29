@@ -9,7 +9,7 @@ runtime:
         - sodium
         - ctype
         - iconv
-        - mongodb:2.0
+        - mongodb
         
 
 #variables:
