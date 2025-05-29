@@ -1,6 +1,6 @@
 name: app
 
-type: php:8.4
+type: php:8.2
 
 runtime:
     extensions:
@@ -9,7 +9,7 @@ runtime:
         - sodium
         - ctype
         - iconv
-        - mongodb
+        - mongodb:2.0
         
 
 #variables:
