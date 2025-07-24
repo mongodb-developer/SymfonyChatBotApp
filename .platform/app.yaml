@@ -1,0 +1,40 @@
+name: app
+type: 'php:8.2'
+
+build:
+    flavor: composer
+
+web:
+    commands:
+        start: |
+            php -d variables_order=EGPCS -S 127.0.0.1:8000 -t public
+
+    locations:
+        '/':
+            root: 'public'
+            passthru: '/index.php'
+
+mounts:
+    '/var': 'shared:files'
+
+disk: 512
+
+hooks:
+    build: |
+        set -e
+        composer install --no-dev --prefer-dist --optimize-autoloader
+
+    deploy: |
+        php bin/console cache:clear --env=prod
+
+variables:
+    env:
+        APP_ENV: "prod"
+        MONGODB_URL: "mongodb://guest:guest@demo-shard-00-00.k5dqp.mongodb.net:27017,demo-shard-00-01.k5dqp.mongodb.net:27017,demo-shard-00-02.k5dqp.mongodb.net:27017/?replicaSet=atlas-4cih2q-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=demo"
+        MONGODB_DB: "ChatBotApp"
+        VOYAGE_API_KEY: "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"
+        VOYAGE_ENDPOINT: "https://api.voyageai.com/v1/embeddings"
+        OPENAI_API_KEY: "pa-h-nqjmbdNk-pubD6Qqx-bvE4VSsqVHiEHQvslgdAlga"
+        OPENAI_API_URL: "https://api.openai.com/v1/chat/completions"
+        BATCH_SIZE: 25
+        MAX_RETRIES: 3
