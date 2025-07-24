@@ -6,7 +6,7 @@ build:
 
 runtime:
     extensions:
-        - mongodb
+        - - mongodb:2.0.0
 
 web:
     commands:
