@@ -1,12 +1,12 @@
 name: app
-type: 'php:8.2'
+type: "php:8.4"
 
 build:
     flavor: composer
 
 runtime:
     extensions:
-        - mongodb:2.0.0
+        - mongodb
 
 web:
     commands:
