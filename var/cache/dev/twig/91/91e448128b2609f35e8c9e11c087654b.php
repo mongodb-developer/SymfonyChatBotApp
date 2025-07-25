@@ -439,6 +439,6 @@ class __TwigTemplate_b3c2012010858a434d125bb3fd07d3ce extends Template
     <script src=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js\"></script>
     <script>hljs.highlightAll();</script>
 {% endblock %}
-", "chat.html.twig", "/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/templates/chat.html.twig");
+", "chat.html.twig", "/Users/aasawari.sahasrabuddhe/apps/chat/SymfonyChatBotApp/templates/chat.html.twig");
     }
 }

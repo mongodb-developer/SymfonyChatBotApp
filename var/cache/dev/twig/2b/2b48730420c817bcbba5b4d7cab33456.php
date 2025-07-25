@@ -182,6 +182,6 @@ class __TwigTemplate_3cf3e9815632febd2aefa84f5c6b20b5 extends Template
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/templates/base.html.twig");
+", "base.html.twig", "/Users/aasawari.sahasrabuddhe/apps/chat/SymfonyChatBotApp/templates/base.html.twig");
     }
 }
