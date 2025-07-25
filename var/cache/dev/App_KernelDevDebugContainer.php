@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerLwgxFWt\App_KernelDevDebugContainer([
     'container.build_hash' => 'LwgxFWt',
-    'container.build_id' => 'd6eb90fd',
-    'container.build_time' => 1753430929,
+    'container.build_id' => '8b8d90fe',
+    'container.build_time' => 1753431339,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerLwgxFWt');
