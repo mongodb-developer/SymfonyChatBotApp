@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2018-present MongoDB, Inc.
+ * Copyright 2015-present MongoDB, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,20 +15,27 @@
  * limitations under the License.
  */
 
-namespace MongoDB\Operation;
+namespace MongoDB\Model;
+
+use Iterator;
+use ReturnTypeWillChange;
 
 /**
- * Explainable interface for explainable operations (aggregate, count, distinct,
- * find, findAndModify, delete, and update).
+ * IndexInfoIterator interface.
  *
- * @internal
+ * This iterator is used for enumerating indexes in a collection.
+ *
+ * @see \MongoDB\Collection::listIndexes()
+ * @deprecated
+ * @template-extends Iterator<int, IndexInfo>
  */
-interface Explainable extends Executable
+interface IndexInfoIterator extends Iterator
 {
     /**
-     * Returns the command document for this operation.
+     * Return the current element as a IndexInfo instance.
      *
-     * @return array
+     * @return IndexInfo
      */
-    public function getCommandDocument();
+    #[ReturnTypeWillChange]
+    public function current();
 }
