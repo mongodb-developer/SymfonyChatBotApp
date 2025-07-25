@@ -60,9 +60,9 @@ Before you begin, ensure you have the following installed and configured:
 5.  **Clone documentation repositories:**
 
     ```bash
-    git clone [https://github.com/symfony/symfony-docs.git](https://github.com/symfony/symfony-docs.git)
-    git clone [https://github.com/doctrine/mongodb-odm.git](https://github.com/doctrine/mongodb-odm.git)
-    git clone [https://github.com/doctrine/orm.git](https://github.com/doctrine/orm.git)
+    git clone https://github.com/symfony/symfony-docs.git
+    git clone https://github.com/doctrine/mongodb-odm.git
+    git clone https://github.com/doctrine/orm.git
     ```
 
 6.  **Copy RST files to the `public` directory:**

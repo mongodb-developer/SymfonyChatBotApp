@@ -66,7 +66,7 @@ class __TwigTemplate_b3c2012010858a434d125bb3fd07d3ce extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Symfony Docs Chatbot";
+        yield "Symfony & Doctrine Docs Chatbot";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -201,12 +201,12 @@ class __TwigTemplate_b3c2012010858a434d125bb3fd07d3ce extends Template
 
         // line 105
         yield "    <div class=\"chat-header\">
-        Symfony Docs Chatbot
+        Symfony & Doctrine Docs Chatbot
     </div>
 
     <div class=\"chat-wrapper\">
         <div class=\"chat-welcome\">
-            Welcome to Symfony Docs Chatbot. We will try to answer your Symfony-based questions.
+            Welcome to Symfony & Doctrine Chatbot. Your intelligent assistant for Symfony and Doctrine.
         </div>
 
         <div class=\"chat-messages\">
@@ -219,7 +219,7 @@ class __TwigTemplate_b3c2012010858a434d125bb3fd07d3ce extends Template
             // line 117
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["question"]) || array_key_exists("question", $context) ? $context["question"] : (function () { throw new RuntimeError('Variable "question" does not exist.', 117, $this->source); })()), "html", null, true);
             yield "</p>
-                    <p><strong>Application says:</strong></p>
+                    <p><strong>ChatBot says:</strong></p>
                     <div class=\"chatbot-response\">
                         ";
             // line 120
@@ -230,7 +230,7 @@ class __TwigTemplate_b3c2012010858a434d125bb3fd07d3ce extends Template
             ";
         } else {
             // line 124
-            yield "                <p>This is an answer to your Symfony documentation page.</p>
+            yield "                <p>This is an answer to your Symfony and Doctrine documentation page.</p>
             ";
         }
         // line 126
@@ -302,7 +302,7 @@ class __TwigTemplate_b3c2012010858a434d125bb3fd07d3ce extends Template
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Symfony Docs Chatbot{% endblock %}
+{% block title %}Symfony & Doctrine Docs Chatbot{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -405,25 +405,25 @@ class __TwigTemplate_b3c2012010858a434d125bb3fd07d3ce extends Template
 
 {% block body %}
     <div class=\"chat-header\">
-        Symfony Docs Chatbot
+        Symfony & Doctrine Docs Chatbot
     </div>
 
     <div class=\"chat-wrapper\">
         <div class=\"chat-welcome\">
-            Welcome to Symfony Docs Chatbot. We will try to answer your Symfony-based questions.
+            Welcome to Symfony & Doctrine Chatbot. Your intelligent assistant for Symfony and Doctrine.
         </div>
 
         <div class=\"chat-messages\">
             {% if question %}
                 <div class=\"chat-message\">
                     <p><strong>You asked:</strong> {{ question }}</p>
-                    <p><strong>Application says:</strong></p>
+                    <p><strong>ChatBot says:</strong></p>
                     <div class=\"chatbot-response\">
                         {{ answer|markdown_to_html|raw }}
                     </div>
                 </div>
             {% else %}
-                <p>This is an answer to your Symfony documentation page.</p>
+                <p>This is an answer to your Symfony and Doctrine documentation page.</p>
             {% endif %}
         </div>
 

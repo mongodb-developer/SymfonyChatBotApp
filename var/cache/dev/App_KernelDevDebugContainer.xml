@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.project_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot</parameter>
+    <parameter key="kernel.project_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.runtime_environment">%env(default:kernel.environment:APP_RUNTIME_ENV)%</parameter>
     <parameter key="kernel.runtime_mode">%env(query_string:default:container.runtime_mode:APP_RUNTIME_MODE)%</parameter>
@@ -9,9 +9,9 @@
     <parameter key="kernel.runtime_mode.cli">%env(not:default:kernel.runtime_mode.web:)%</parameter>
     <parameter key="kernel.runtime_mode.worker">%env(bool:default::key:worker:default:kernel.runtime_mode:)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev</parameter>
-    <parameter key="kernel.cache_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/log</parameter>
+    <parameter key="kernel.build_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="DoctrineMongoDBBundle">Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle</parameter>
@@ -20,19 +20,19 @@
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
-        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/vendor/symfony/framework-bundle</parameter>
+        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/vendor/symfony/framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="DoctrineMongoDBBundle" type="collection">
-        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/vendor/doctrine/mongodb-odm-bundle</parameter>
+        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/vendor/doctrine/mongodb-odm-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MongoDBBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/vendor/symfony/twig-bundle</parameter>
+        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/vendor/symfony/twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="TwigExtraBundle" type="collection">
-        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/vendor/twig/extra-bundle</parameter>
+        <parameter key="path">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/vendor/twig/extra-bundle</parameter>
         <parameter key="namespace">Twig\Extra\TwigExtraBundle</parameter>
       </parameter>
     </parameter>
@@ -40,12 +40,6 @@
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
     <parameter key="env(MONGODB_URL)"></parameter>
     <parameter key="env(MONGODB_DB)"></parameter>
-    <parameter key="voyage.api_key">%env(VOYAGE_API_KEY)%</parameter>
-    <parameter key="voyage.endpoint">%env(VOYAGE_ENDPOINT)%</parameter>
-    <parameter key="voyage.batch_size">%env(int:BATCH_SIZE)%</parameter>
-    <parameter key="voyage.max_retries">%env(int:MAX_RETRIES)%</parameter>
-    <parameter key="openai.api_key">%env(OPENAI_API_KEY)%</parameter>
-    <parameter key="openai.api_url">%env(OPENAI_API_URL)%</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
@@ -74,15 +68,15 @@
     <parameter key="kernel.trusted_headers">%env(default::SYMFONY_TRUSTED_HEADERS)%</parameter>
     <parameter key="debug.file_link_format">%env(default::SYMFONY_IDE)%</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
-    <parameter key="router.cache_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev</parameter>
+    <parameter key="router.cache_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="cache.prefix.seed">_/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot.App_KernelDevDebugContainer</parameter>
+    <parameter key="cache.prefix.seed">_/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
@@ -96,13 +90,13 @@
     <parameter key="doctrine_mongodb.odm.default_connection">default</parameter>
     <parameter key="doctrine_mongodb.odm.default_document_manager">default</parameter>
     <parameter key="doctrine_mongodb.odm.proxy_namespace">MongoDBODMProxies</parameter>
-    <parameter key="doctrine_mongodb.odm.proxy_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/doctrine/odm/mongodb/Proxies</parameter>
+    <parameter key="doctrine_mongodb.odm.proxy_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/doctrine/odm/mongodb/Proxies</parameter>
     <parameter key="doctrine_mongodb.odm.auto_generate_proxy_classes">2</parameter>
     <parameter key="doctrine_mongodb.odm.hydrator_namespace">Hydrators</parameter>
-    <parameter key="doctrine_mongodb.odm.hydrator_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/doctrine/odm/mongodb/Hydrators</parameter>
+    <parameter key="doctrine_mongodb.odm.hydrator_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/doctrine/odm/mongodb/Hydrators</parameter>
     <parameter key="doctrine_mongodb.odm.auto_generate_hydrator_classes">1</parameter>
     <parameter key="doctrine_mongodb.odm.default_commit_options" type="collection"/>
-    <parameter key="doctrine_mongodb.odm.persistent_collection_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/doctrine/odm/mongodb/PersistentCollections</parameter>
+    <parameter key="doctrine_mongodb.odm.persistent_collection_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/doctrine/odm/mongodb/PersistentCollections</parameter>
     <parameter key="doctrine_mongodb.odm.persistent_collection_namespace">PersistentCollections</parameter>
     <parameter key="doctrine_mongodb.odm.auto_generate_persistent_collection_classes">0</parameter>
     <parameter key="doctrine_mongodb.odm.connections" type="collection">
@@ -114,7 +108,7 @@
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
-    <parameter key="twig.default_path">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/templates</parameter>
+    <parameter key="twig.default_path">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/templates</parameter>
     <parameter key="console.command.ids" type="collection"/>
   </parameters>
   <services>
@@ -124,12 +118,15 @@
       <tag name="routing.route_loader"/>
     </service>
     <service id="http_discovery.psr17_factory" class="Http\Discovery\Psr17Factory"/>
+    <service id="League\CommonMark\Extension\Table\TableExtension" class="League\CommonMark\Extension\Table\TableExtension" autowire="true" autoconfigure="true">
+      <tag name="twig.markdown.league_extension"/>
+    </service>
     <service id="App\Command\CreateChunks" class="App\Command\CreateChunks" autowire="true" autoconfigure="true">
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine_mongodb.odm.default_document_manager"/>
       <call method="setName">
-        <argument>app:createChunks</argument>
+        <argument>app:create-chunks</argument>
       </call>
       <call method="setDescription">
         <argument>This command will generate chunks from the rst files and store into MongoDB</argument>
@@ -141,8 +138,9 @@
       <argument type="service" id="doctrine_mongodb.odm.default_document_manager"/>
       <argument>%env(VOYAGE_API_KEY)%</argument>
       <argument>%env(VOYAGE_ENDPOINT)%</argument>
-      <argument>%env(int:BATCH_SIZE)%</argument>
-      <argument>%env(int:MAX_RETRIES)%</argument>
+      <argument>%env(BATCH_SIZE)%</argument>
+      <argument>%env(MAX_RETRIES)%</argument>
+      <argument type="service" id="http_client.uri_template"/>
       <call method="setName">
         <argument>app:embed-chunks</argument>
       </call>
@@ -167,6 +165,7 @@
       <argument>%env(OPENAI_API_URL)%</argument>
       <argument>%env(VOYAGE_API_KEY)%</argument>
       <argument>%env(VOYAGE_ENDPOINT)%</argument>
+      <argument type="service" id="http_client.uri_template"/>
     </service>
     <service id="controller_resolver" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver">
       <tag name="monolog.logger" channel="request"/>
@@ -510,7 +509,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/http_cache</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -520,7 +519,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -551,6 +550,8 @@
         <argument key="cache.validator" type="service" id="cache.validator" on-invalid="ignore_uninitialized"/>
         <argument key="cache.serializer" type="service" id="cache.serializer" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
+        <argument key="http_client.transport" type="service" id="http_client.transport" on-invalid="ignore_uninitialized"/>
+        <argument key="http_client" type="service" id="http_client.uri_template" on-invalid="ignore_uninitialized"/>
         <argument key="session_listener" type="service" id="session_listener" on-invalid="ignore_uninitialized"/>
         <argument key="twig" type="service" id="twig" on-invalid="ignore_uninitialized"/>
       </argument>
@@ -575,6 +576,12 @@
         </argument>
         <argument key="cache.property_info" type="collection">
           <argument>reset</argument>
+        </argument>
+        <argument key="http_client.transport" type="collection">
+          <argument>?reset</argument>
+        </argument>
+        <argument key="http_client" type="collection">
+          <argument>?reset</argument>
         </argument>
         <argument key="session_listener" type="collection">
           <argument>reset</argument>
@@ -671,7 +678,7 @@
       </argument>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp</argument>
       <argument type="service">
         <service>
           <argument type="service" id="request_stack"/>
@@ -704,7 +711,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="filesystem"/>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp</argument>
       <call method="setName">
         <argument>assets:install</argument>
       </call>
@@ -866,7 +873,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument>dev</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp</argument>
       <call method="setName">
         <argument>debug:dotenv</argument>
       </call>
@@ -1016,9 +1023,9 @@
     <service id="cache.app" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="true">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>70OctYUIYl</argument>
+      <argument>jaSAe38uK9</argument>
       <argument>0</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/pools/app</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -1031,40 +1038,40 @@
     <service id="cache.system" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="true">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>UfflP7HsvB</argument>
+      <argument>zqWo+qw-w-</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/pools/system</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>gvaaAPC7jB</argument>
+      <argument>bxmW-RAves</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/pools/system</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>CUwEhox4gG</argument>
+      <argument>ZcqsLzl9-1</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/pools/system</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.property_info" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>Nnl7hACgA5</argument>
+      <argument>gGCDDDeECZ</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/pools/system</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1074,7 +1081,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/pools/system</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1093,7 +1100,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/pools/app</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -1198,6 +1205,56 @@
         <argument key="cache.serializer" type="service" id="cache.serializer" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
       </argument>
+    </service>
+    <service id="http_client.transport" class="Symfony\Contracts\HttpClient\HttpClientInterface">
+      <tag name="monolog.logger" channel="http_client"/>
+      <tag name="kernel.reset" method="reset" on_invalid="ignore"/>
+      <argument type="collection"/>
+      <argument>6</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+      <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
+    </service>
+    <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
+      <argument type="service" id="http_client.uri_template"/>
+      <argument type="service" id="http_discovery.psr17_factory" on-invalid="ignore"/>
+      <argument type="service" id="http_discovery.psr17_factory" on-invalid="ignore"/>
+    </service>
+    <service id="http_client.abstract_retry_strategy" class="Symfony\Component\HttpClient\Retry\GenericRetryStrategy" abstract="true">
+      <argument type="abstract">http codes</argument>
+      <argument type="abstract">delay ms</argument>
+      <argument type="abstract">multiplier</argument>
+      <argument type="abstract">max delay ms</argument>
+      <argument type="abstract">jitter</argument>
+    </service>
+    <service id="http_client.uri_template" class="Symfony\Component\HttpClient\UriTemplateHttpClient">
+      <tag name="http_client.client"/>
+      <tag name="kernel.reset" method="reset" on_invalid="ignore"/>
+      <tag name="container.decorator" id="http_client" inner="http_client.uri_template.inner"/>
+      <argument type="service" id="http_client.uri_template.inner"/>
+      <argument>null</argument>
+      <argument type="collection"/>
+    </service>
+    <service id="http_client.uri_template_expander.guzzle" class="Closure">
+      <argument type="collection">
+        <argument>GuzzleHttp\UriTemplate\UriTemplate</argument>
+        <argument>expand</argument>
+      </argument>
+      <factory class="Closure" method="fromCallable"/>
+    </service>
+    <service id="http_client.uri_template_expander.rize" class="Closure">
+      <argument type="collection">
+        <argument type="service">
+          <service class="Rize\UriTemplate"/>
+        </argument>
+        <argument>expand</argument>
+      </argument>
+      <factory class="Closure" method="fromCallable"/>
+    </service>
+    <service id="http_client.messenger.ping_webhook_handler" class="Symfony\Component\HttpClient\Messenger\PingWebhookMessageHandler">
+      <tag name="messenger.message_handler"/>
+      <argument type="service" id="http_client.uri_template"/>
     </service>
     <service id="debug.error_handler_configurator" class="Symfony\Component\HttpKernel\Debug\ErrorHandlerConfigurator" public="true">
       <tag name="monolog.logger" channel="php"/>
@@ -1310,7 +1367,7 @@
       <argument type="service" id=".service_locator.RTjHFcp.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev</argument>
+        <argument key="cache_dir">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -1348,7 +1405,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="logger" on-invalid="ignore"/>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp</argument>
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -1368,7 +1425,7 @@
       <argument type="service" id="twig" on-invalid="ignore"/>
     </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
       <argument type="service" id="secrets.decryption_key" on-invalid="ignore"/>
       <argument>APP_SECRET</argument>
     </service>
@@ -1381,7 +1438,7 @@
       <argument>base64:default::SYMFONY_DECRYPTION_SECRET</argument>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/.env.dev.local</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/.env.dev.local</argument>
     </service>
     <service id=".cache_connection.MfCypIA" class="Symfony\Component\Cache\Adapter\AbstractAdapter" constructor="createConnection">
       <argument>redis://localhost</argument>
@@ -1425,7 +1482,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/sessions</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -1611,7 +1668,7 @@
         <argument type="service" id="doctrine_mongodb.odm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/doctrine/odm/mongodb/Proxies</argument>
+        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/doctrine/odm/mongodb/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>MongoDBODMProxies</argument>
@@ -1620,7 +1677,7 @@
         <argument>2</argument>
       </call>
       <call method="setHydratorDir">
-        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/doctrine/odm/mongodb/Hydrators</argument>
+        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/doctrine/odm/mongodb/Hydrators</argument>
       </call>
       <call method="setHydratorNamespace">
         <argument>Hydrators</argument>
@@ -1641,7 +1698,7 @@
         <argument>Doctrine\ODM\MongoDB\Repository\DefaultGridFSRepository</argument>
       </call>
       <call method="setPersistentCollectionDir">
-        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/doctrine/odm/mongodb/PersistentCollections</argument>
+        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/doctrine/odm/mongodb/PersistentCollections</argument>
       </call>
       <call method="setPersistentCollectionNamespace">
         <argument>PersistentCollections</argument>
@@ -1669,13 +1726,13 @@
         </argument>
         <argument key="driver" type="collection">
           <argument key="name">symfony-mongodb</argument>
-          <argument key="version">2.11.1</argument>
+          <argument key="version">2.11.2</argument>
         </argument>
       </argument>
     </service>
     <service id="doctrine_mongodb.odm.default_attribute_metadata_driver" class="Doctrine\ODM\MongoDB\Mapping\Driver\AttributeDriver">
       <argument type="collection">
-        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/src/Document</argument>
+        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/src/Document</argument>
       </argument>
     </service>
     <service id="doctrine_mongodb.odm.default_metadata_driver" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
@@ -1715,7 +1772,7 @@
       <tag name="kernel.reset" method="resetGlobals"/>
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
-        <argument key="cache">/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/var/cache/dev/twig</argument>
+        <argument key="cache">/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -1789,7 +1846,7 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
       <argument type="collection"/>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/templates</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/templates</argument>
       <argument type="collection">
         <argument>*.twig</argument>
       </argument>
@@ -1803,17 +1860,17 @@
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader">
       <tag name="twig.loader"/>
       <argument type="collection"/>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp</argument>
       <call method="addPath">
-        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/vendor/doctrine/mongodb-odm-bundle/templates</argument>
+        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/vendor/doctrine/mongodb-odm-bundle/templates</argument>
         <argument>DoctrineMongoDB</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/vendor/doctrine/mongodb-odm-bundle/templates</argument>
+        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/vendor/doctrine/mongodb-odm-bundle/templates</argument>
         <argument>!DoctrineMongoDB</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/templates</argument>
+        <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/templates</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader"/>
@@ -1898,9 +1955,9 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="twig"/>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp</argument>
       <argument>%kernel.bundles_metadata%</argument>
-      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyDocsChatBot/templates</argument>
+      <argument>/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/templates</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <call method="setName">
         <argument>debug:twig</argument>
@@ -2122,11 +2179,17 @@
         <argument key="request_stack" type="service_closure" id="request_stack" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id="http_client.uri_template.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
+      <argument type="collection">
+        <argument type="service" id="http_client.transport"/>
+      </argument>
+      <factory function="current"/>
+    </service>
     <service id=".errored..service_locator.zHyJIs5.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.zHyJIs5&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
     </service>
     <service id=".App\Command\CreateChunks.lazy" class="Symfony\Component\Console\Command\LazyCommand">
-      <argument>app:createChunks</argument>
+      <argument>app:create-chunks</argument>
       <argument type="collection"/>
       <argument>This command will generate chunks from the rst files and store into MongoDB</argument>
       <argument>false</argument>
@@ -2339,7 +2402,7 @@
       <tag name="container.no_preload"/>
       <argument type="service" id=".service_locator.pf.hKe_"/>
       <argument type="collection">
-        <argument key="app:createChunks">App\Command\CreateChunks</argument>
+        <argument key="app:create-chunks">App\Command\CreateChunks</argument>
         <argument key="app:embed-chunks">App\Command\EmbeddedChunks</argument>
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -2462,6 +2525,8 @@
     <service id="Psr\Cache\CacheItemPoolInterface" alias="cache.app"/>
     <service id="Symfony\Contracts\Cache\CacheInterface" alias="cache.app"/>
     <service id="Symfony\Contracts\Cache\TagAwareCacheInterface" alias="cache.app.taggable"/>
+    <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias="http_client.uri_template"/>
+    <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
     <service id="Symfony\Component\ErrorHandler\ErrorRenderer\FileLinkFormatter" alias="debug.file_link_formatter"/>
     <service id="router" alias="router.default" public="true"/>
     <service id="Symfony\Component\Routing\RouterInterface" alias="router.default"/>
@@ -2485,6 +2550,7 @@
     <service id="argument_resolver.controller_locator" alias=".service_locator.F6vdjrP"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
+    <service id="http_client" alias="http_client.uri_template"/>
     <service id="twig.error_renderer.html.inner" alias="error_handler.error_renderer.html"/>
     <service id=".service_locator.n_ENPtW" alias=".service_locator.zHyJIs5"/>
     <service id=".service_locator._Hy4NY2" alias=".service_locator.ZyP9f7K"/>
