@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Yethee\\Tiktoken\\' => array($vendorDir . '/yethee/tiktoken/src'),
     'Twig\\Extra\\TwigExtraBundle\\' => array($vendorDir . '/twig/extra-bundle'),
     'Twig\\Extra\\Markdown\\' => array($vendorDir . '/twig/markdown-extra'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),

@@ -1766,6 +1766,7 @@
       <tag name="container.preload" class="Twig\Extension\EscaperExtension"/>
       <tag name="container.preload" class="Twig\Extension\OptimizerExtension"/>
       <tag name="container.preload" class="Twig\Extension\StagingExtension"/>
+      <tag name="container.preload" class="Twig\ExpressionParser\Infix\BinaryOperatorExpressionParser"/>
       <tag name="container.preload" class="Twig\ExtensionSet"/>
       <tag name="container.preload" class="Twig\Template"/>
       <tag name="container.preload" class="Twig\TemplateWrapper"/>

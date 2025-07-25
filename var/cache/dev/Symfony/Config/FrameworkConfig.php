@@ -238,8 +238,8 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
 
     /**
      * @default array (
-      0 => '%env(default::SYMFONY_TRUSTED_PROXIES)%',
-    )
+     *   0 => '%env(default::SYMFONY_TRUSTED_PROXIES)%',
+     * )
      * @param ParamConfigurator|mixed $value
      *
      * @return $this
