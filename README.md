@@ -50,9 +50,9 @@ Before you begin, ensure you have the following installed and configured:
 
     ```
     VOYAGE_API_KEY=<Your_Voyage_AI_API_Key>
-    VOYAGE_ENDPOINT=[https://api.voyageai.com/v1/embeddings](https://api.voyageai.com/v1/embeddings)
+    VOYAGE_ENDPOINT=https://api.voyageai.com/v1/embeddings
     OPENAI_API_KEY=<Your_OpenAI_API_Key>
-    OPENAI_API_URL=[https://api.openai.com/v1/chat/completions](https://api.openai.com/v1/chat/completions)
+    OPENAI_API_URL=https://api.openai.com/v1/chat/completions
     BATCH_SIZE=32
     MAX_RETRIES=3
     ```
