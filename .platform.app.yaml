@@ -39,4 +39,4 @@ variables:
     env:
         APP_ENV: "prod"
         BATCH_SIZE: 25
-        MAX_RETRIES: 3# Updated Fri Jul 25 11:00:37 IST 2025
+        MAX_RETRIES: 3
