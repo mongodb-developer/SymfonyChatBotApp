@@ -7,10 +7,10 @@
         "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/mongodb-odm": "^2.11",
+        "doctrine/mongodb-odm": "^2.5",
         "doctrine/mongodb-odm-bundle": "^5.3.1",
         "league/commonmark": "^2.7.1",
-        "mongodb/mongodb": "^2.0",
+        "mongodb/mongodb": "^1.21",
         "symfony/console": "7.2.*",
         "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2.8.1",
@@ -31,7 +31,10 @@
             "symfony/runtime": true
         },
         "bump-after-update": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-mongodb": "2.0.0"
+        }
     },
     "autoload": {
         "psr-4": {
