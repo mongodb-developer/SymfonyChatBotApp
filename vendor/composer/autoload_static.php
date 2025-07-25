@@ -28,6 +28,10 @@ class ComposerStaticInit74ab73114a599f4a2997b6a284f9e273
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Y' => 
+        array (
+            'Yethee\\Tiktoken\\' => 16,
+        ),
         'T' => 
         array (
             'Twig\\Extra\\TwigExtraBundle\\' => 27,
@@ -136,6 +140,10 @@ class ComposerStaticInit74ab73114a599f4a2997b6a284f9e273
     );
 
     public static $prefixDirsPsr4 = array (
+        'Yethee\\Tiktoken\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yethee/tiktoken/src',
+        ),
         'Twig\\Extra\\TwigExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/extra-bundle',

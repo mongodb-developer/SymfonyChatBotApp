@@ -56,14 +56,12 @@ class CsrfProtectionConfig
     }
 
     /**
-     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
-     *
      * @return $this
      */
-    public function fieldAttr(ParamConfigurator|array $value): static
+    public function fieldAttr(string $name, mixed $value): static
     {
         $this->_usedProperties['fieldAttr'] = true;
-        $this->fieldAttr = $value;
+        $this->fieldAttr[$name] = $value;
 
         return $this;
     }
