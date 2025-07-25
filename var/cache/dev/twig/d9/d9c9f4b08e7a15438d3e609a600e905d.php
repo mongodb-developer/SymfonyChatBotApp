@@ -391,6 +391,6 @@ class __TwigTemplate_4474ff25c82fc3a496b3aa6a32cb723b extends Template
         </tbody>
     </table>
 {% endblock %}
-", "@DoctrineMongoDB/Collector/mongodb.html.twig", "/Users/aasawari.sahasrabuddhe/apps/SymfonyChatBotApp/vendor/doctrine/mongodb-odm-bundle/templates/Collector/mongodb.html.twig");
+", "@DoctrineMongoDB/Collector/mongodb.html.twig", "/Users/aasawari.sahasrabuddhe/apps/chat/SymfonyChatBotApp/vendor/doctrine/mongodb-odm-bundle/templates/Collector/mongodb.html.twig");
     }
 }
