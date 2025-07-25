@@ -9,17 +9,20 @@ runtime:
         - mongodb
 
 web:
-    commands:
-        start: |
-            php -d variables_order=EGPCS -S 127.0.0.1:8000 -t public
-
     locations:
         '/':
             root: 'public'
             passthru: '/index.php'
+            allow: true
+            expires: -1
+            scripts: true
+            index:
+                - index.php
 
 mounts:
-    '/var': 'shared:files'
+    '/var': 'shared:files/var'
+    '/var/cache': 'shared:files/cache'
+    '/var/log': 'shared:files/log'
 
 disk: 512
 
@@ -29,7 +32,8 @@ hooks:
         composer install --no-dev --prefer-dist --optimize-autoloader
 
     deploy: |
-        php bin/console cache:clear --env=prod
+        php bin/console cache:clear --env=prod --no-warmup
+        php bin/console cache:warmup --env=prod
 
 variables:
     env:
