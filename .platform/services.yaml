@@ -1,3 +1,1 @@
-mongodb:
-    type: mongodb:7.0
-    disk: 256
+
