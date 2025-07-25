@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2018-present MongoDB, Inc.
+ * Copyright 2015-present MongoDB, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,18 +17,22 @@
 
 namespace MongoDB\Operation;
 
+use MongoDB\Driver\Server;
+
 /**
- * Explainable interface for explainable operations (aggregate, count, distinct,
- * find, findAndModify, delete, and update).
+ * Executable interface for operation classes.
+ *
+ * This interface is reserved for internal use until PHPC-378 is implemented,
+ * since execute() should ultimately be changed to use ServerInterface.
  *
  * @internal
  */
-interface Explainable extends Executable
+interface Executable
 {
     /**
-     * Returns the command document for this operation.
+     * Execute the operation.
      *
-     * @return array
+     * @return mixed
      */
-    public function getCommandDocument();
+    public function execute(Server $server);
 }

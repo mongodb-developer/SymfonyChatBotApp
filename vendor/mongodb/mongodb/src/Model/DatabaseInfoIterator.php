@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2018-present MongoDB, Inc.
+ * Copyright 2015-present MongoDB, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,20 +15,27 @@
  * limitations under the License.
  */
 
-namespace MongoDB\Operation;
+namespace MongoDB\Model;
+
+use Iterator;
+use ReturnTypeWillChange;
 
 /**
- * Explainable interface for explainable operations (aggregate, count, distinct,
- * find, findAndModify, delete, and update).
+ * DatabaseInfoIterator interface.
  *
- * @internal
+ * This iterator is used for enumerating databases on a server.
+ *
+ * @see \MongoDB\Client::listDatabases()
+ * @deprecated
+ * @template-extends Iterator<int, DatabaseInfo>
  */
-interface Explainable extends Executable
+interface DatabaseInfoIterator extends Iterator
 {
     /**
-     * Returns the command document for this operation.
+     * Return the current element as a DatabaseInfo instance.
      *
-     * @return array
+     * @return DatabaseInfo
      */
-    public function getCommandDocument();
+    #[ReturnTypeWillChange]
+    public function current();
 }
