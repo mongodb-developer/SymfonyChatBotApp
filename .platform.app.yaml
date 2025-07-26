@@ -40,3 +40,9 @@ variables:
         APP_ENV: "prod"
         BATCH_SIZE: 25
         MAX_RETRIES: 3
+        MONGODB_URL: "@MONGODB_URL"
+        MONGODB_DB: "@MONGODB_DB"
+        OPENAI_API_KEY: "@OPENAI_API_KEY"
+        OPENAI_API_URL: "@OPENAI_API_URL"
+        VOYAGE_API_KEY: "@VOYAGE_API_KEY"
+        VOYAGE_ENDPOINT: "@VOYAGE_ENDPOINT"
