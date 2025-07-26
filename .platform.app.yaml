@@ -46,3 +46,5 @@ variables:
         OPENAI_API_URL: "@OPENAI_API_URL"
         VOYAGE_API_KEY: "@VOYAGE_API_KEY"
         VOYAGE_ENDPOINT: "@VOYAGE_ENDPOINT"
+runtime:
+    variables_order: "EGPCS"
