@@ -41,10 +41,10 @@ variables:
         APP_ENV: "prod"
         BATCH_SIZE: 25
         MAX_RETRIES: 3
-        MONGODB_URL: "<Atlas URI>"
-        MONGODB_DB: "<Database Name>"
-        OPENAI_API_KEY: "<OPEN AI key>"
+        MONGODB_URL: "mongodb://guest:guest@demo-shard-00-00.k5dqp.mongodb.net:27017,demo-shard-00-01.k5dqp.mongodb.net:27017,demo-shard-00-02.k5dqp.mongodb.net:27017/?replicaSet=atlas-4cih2q-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=demo"
+        MONGODB_DB: "ChatBotApp"
+        OPENAI_API_KEY: "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"
         OPENAI_API_URL: "https://api.openai.com/v1/chat/completions"
-        VOYAGE_API_KEY: "Voyage AI Key"
+        VOYAGE_API_KEY: "pa-h-nqjmbdNk-pubD6Qqx-bvE4VSsqVHiEHQvslgdAlga"
         VOYAGE_ENDPOINT: "https://api.voyageai.com/v1/embeddings"
     
